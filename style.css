@@ -1,0 +1,100 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-image: linear-gradient(45deg , #0005ff  , #ff1458);
+    gap: 40px;
+}
+.board{
+        display: grid;
+        position: relative;
+        grid-template-columns: repeat(3 ,1fr);
+    
+}
+.board .dropBox{
+    width: 140px;
+    height: 140px;
+    border-right: 4px solid #fff;
+    border-bottom: 4px solid #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.board .dropBox:nth-child(3),
+.board .dropBox:nth-child(6),
+.board .dropBox:nth-child(9){
+    border-right: none;
+}
+.board .dropBox:nth-child(7),
+.board .dropBox:nth-child(8),
+.board .dropBox:nth-child(9){
+    border-bottom: none;
+}
+
+.drag{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    height: 420px;
+    width: 120px;
+    gap: 10px;
+    margin: 0 40px;
+    cursor:grab
+}
+.drag .dragBox{
+    padding: 15px;
+    background:rgba(255, 255, 255 , 0.1);
+}
+.circle,
+.cross{
+    position: relative;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+.cross::before,
+.cross::after{
+    position: absolute;
+    content:"";
+    width: 100%;
+    height: 5px;
+    background: #fff;
+}
+
+.cross::before{
+    transform: rotate(45deg);
+}
+.cross::after{
+    transform: rotate(-45deg);
+}
+.circle{
+    border-radius: 50%;
+    border : 5px solid white
+}
+.reset { 
+    position: absolute;
+    bottom: 10px;
+    left: calc(50% - 100px);
+    width: 200px;
+    background: #333;
+    padding: 20px 0;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: .2s all ease;
+}
+.reset:active{
+    box-shadow:4px 5px 1px -1px rgba(51, 51, 51 , .6) ;
+}
